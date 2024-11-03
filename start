@@ -1,1 +1,38 @@
+import logging
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
 
+# Включаем логирование
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+
+logger = logging.getLogger(__name__)
+
+# Определяем команды бота
+def start(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('Привет! Я ваш Telegram-бот.')
+
+def help_command(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('С помощью /start вы можете начать общение.')
+
+def main() -> None:
+    # Замените 'YOUR_TOKEN' на токен вашего бота
+    updater = Updater("7845888397:AAHEgo4-oT8FdzZJ52O45itGEANH3l46ZwU")
+
+    # Получаем диспетчер для обработки команд
+    dispatcher = updater.dispatcher
+
+    # Регистрация обработчиков команд
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("help", help_command))
+
+    # Запуск бота
+    updater.start_polling()
+
+    # Остановка бота, если вы завершаете программу
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
