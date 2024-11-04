@@ -11,14 +11,16 @@ def send_welcome(message):
     markup = types.InlineKeyboardMarkup()
     
     # Создайте кнопки с ссылками
-    button1 = types.InlineKeyboardButton("Ссылка 1", url="https://example.com/1")
-    button2 = types.InlineKeyboardButton("Ссылка 2", url="https://example.com/2")
-    button3 = types.InlineKeyboardButton("Ссылка 3", url="https://example.com/3")
+    button1 = types.InlineKeyboardButton("Outline(AppStore)", url="https://apps.apple.com/app/id1356177741")
+    button2 = types.InlineKeyboardButton("V2Box(AppStore)", url="https://apps.apple.com/app/id6446814690")
+    button3 = types.InlineKeyboardButton("Outline(GooglePlay)", url="https://play.google.com/store/apps/details?id=org.outline.android.client&pcampaignid=web_share")
+    button4 = types.InlineKeyboardButton("V2Box(GooglePlay)", url="https://play.google.com/store/apps/details?id=dev.hexasoftware.v2box&pcampaignid=web_share")
+    button5 = types.InlineKeyboardButton("Вскоре здесь будет ссылка на бота с подписками", url="https://t.me/LD669_BOT")
     
     # Добавляем кнопки на клавиатуру
-    markup.add(button1, button2, button3)
+    markup.add(button1, button2, button3, button4, button5)
     
-    bot.send_message(message.chat.id, "Привет! Выберите ссылку:", reply_markup=markup)
+    bot.send_message(message.chat.id, "Привет! Выберите ссылку, для работы с прокси:", reply_markup=markup)
 
 # Запускаем бота
 if __name__ == '__main__':
