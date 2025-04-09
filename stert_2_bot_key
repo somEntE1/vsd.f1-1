@@ -44,7 +44,7 @@ async def echo(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text(update.message.text)
 
 def main():
-    application = ApplicationBuilder().token('7907358143:AAFyjI09OB0KdGpgmlD1VpiNBXYbtcWtdtA').build()
+    application = ApplicationBuilder().token('').build()
 
     application.add_handler(CommandHandler('start', start))
     application.add_handler(CommandHandler('key', get_key))
